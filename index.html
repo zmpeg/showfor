@@ -1,0 +1,72 @@
+<!DOCTYPE>
+<html>
+    <head>
+        <title>Testbed</title>
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <!--script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script-->
+        <script src="showfor.jquery.js"></script>
+        <script type="text/javascript">
+            $(function() {
+                $("#b").showfor("#a", true);
+                $("#c").showfor("#b", true);
+            });
+        </script>
+    </head>
+    <body>
+        <form>
+            
+            <select id="a" name="a">
+                <option value="">--Choose A--</option>
+                <option value="1">A1</option>
+                <option value="2">A2</option>
+                <option value="3">A3</option>
+            </select>
+            
+            <select id="b" name="b">
+                <option value="">--Choose A First--</option>
+                <option value="1" class="show-for-1">B1</option>
+                <option value="2" class="show-for-1">B2</option>
+                <option value="3" class="show-for-1">B3</option>
+                <option value="4" class="show-for-2">B4</option>
+                <option value="5" class="show-for-2">B5</option>
+                <option value="6" class="show-for-2">B6</option>
+                <option value="7" class="show-for-3">B7</option>
+                <option value="8" class="show-for-3">B8</option>
+                <option value="9" class="show-for-3">B9</option>
+            </select>
+            
+            <select id="c" name="c">
+                <option value="">--Choose B First--</option>
+                <option value="1" class="show-for-1">C1</option>
+                <option value="2" class="show-for-2">C2</option>
+                <option value="3" class="show-for-3">C3</option>
+                <option value="4" class="show-for-4">C4</option>
+                <option value="5" class="show-for-5">C5</option>
+                <option value="6" class="show-for-6">C6</option>
+                <option value="7" class="show-for-7">C7</option>
+                <option value="8" class="show-for-8">C8</option>
+                <option value="9" class="show-for-9">C9</option>
+                
+                <option value="11" class="show-for-1">C11</option>
+                <option value="12" class="show-for-2">C12</option>
+                <option value="13" class="show-for-3">C13</option>
+                <option value="14" class="show-for-4">C14</option>
+                <option value="15" class="show-for-5">C15</option>
+                <option value="16" class="show-for-6">C16</option>
+                <option value="17" class="show-for-7">C17</option>
+                <option value="18" class="show-for-8">C18</option>
+                <option value="19" class="show-for-9">C19</option>
+                
+                <option value="11" class="show-for-1">C21</option>
+                <option value="12" class="show-for-2">C22</option>
+                <option value="13" class="show-for-3">C23</option>
+                <option value="14" class="show-for-4">C24</option>
+                <option value="15" class="show-for-5">C25</option>
+                <option value="16" class="show-for-6">C26</option>
+                <option value="17" class="show-for-7">C27</option>
+                <option value="18" class="show-for-8">C28</option>
+                <option value="19" class="show-for-9">C29</option>
+            </select>
+        </form>
+    </body>
+</html>
