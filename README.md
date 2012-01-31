@@ -1,8 +1,8 @@
 showfor
 -------
 
-[Download][dl]
-[Website][web]
++ [Download][dl]
++ [Website][web]
 
 [dl]: https://github.com/zmpeg/showfor/tarball/master
 [web]: http://mjz.me/showfor/
@@ -21,7 +21,7 @@ with no value.
 To start showfor simply call it using jquery: $("#child").showfor("#parent");
 Showfor accepts a few options as a second argument like this:
 
-$("#child").showfor("#parent, {
-    hideChild: true/false,    // hides child options until the parent has a value
-    disableChild: true/false, // disables child until parent has a value.
-});
+    $("#child").showfor("#parent, {
+        hideChild: true/false,    // hides child options until the parent has a value
+        disableChild: true/false, // disables child until parent has a value.
+    });
