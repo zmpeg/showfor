@@ -9,12 +9,7 @@ showfor
 
 ### Introduction ###
 
-Showfor is a tool for making on select box depend on another select box.
-You can narrow the number of options in the child select based on the
-parents value. Simply give the child options a class with the id of the
-parent like this: `<option class="show-for-####">blue</option>` where `####`
-is the value of the parent for which that option should display. Showfor
-will always show options with no value.
+Showfor is a tool for making on select box depend on another select box. You can narrow the number of options in the child select based on the parents value. Simply give the child options a class with the id of the parent like this: `<option class="show-for-####">blue</option>` where `####` is the value of the parent for which that option should display. Showfor will always show options with no value. 
 
 ### Usage ###
 
