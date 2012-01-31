@@ -1,34 +1,39 @@
-$.fn.showfor = function(parent, hideChild, useDisabled) {
+$.fn.showfor = function(parent, config) {
     
     // set defaults
-    if(typeof(hideChild)=="undefined") hideChild = false;
-    if(typeof(useDisabled)=="undefined") useDisabled = true;
+    if(typeof(config)=="undefined") config = {};
+    if(typeof(config.hideChild)=="undefined") config.hideChild = false;
+    if(typeof(config.disableChild)=="undefined") config.disableChild = true;
     
-    // Clone the child to keep a list of all the elements.
+    // Clone the child to keep a original list of all the elements.
     childClone = $(this).clone();
     
-    // If the hide child config is set remove the child options until a parent is chosen.
-    if(hideChild) $(this).find("option[value!='']").remove();
+    // If the hideChild config is set, then remove the child options until a parent is chosen.
+    if(config.hideChild) $(this).find("option[value!='']").remove();
     
-    // Disable the child select if the config is specified.
-    if(useDisabled) $(this).attr('disabled', true);
+    // If the disableChild config is set, then disable the child select.
+    if(config.disableChild) $(this).attr('disabled', true);
     
     /* Add a handler for parent.
      *   child is the dependent select.
-     *   useDisabled is the option.
+     *   config is the supplied options for this showfor instance.
      *   originalClone is a clone of the child element with all the options enabled.
      */
-    $(parent).change((function(child, useDisabled, originalClone) {
+    $(parent).change((function(child, config, originalClone) {
         return function() {
             
             // enable child if using disabled
-            if(useDisabled) $(child).removeAttr('disabled');
+            if(config.disableChild) $(child).removeAttr('disabled');
             
             // hide all child options
             $(child).find("option[value!='']").remove();
             
-            // show available child options
-            $(originalClone).find("option[value!=''].show-for-"+this.value).appendTo(child);
+            // Show available child options
+            // only include the .show-for-### filter if the parent has a selected value.
+            if(this.value == "")
+                $(originalClone).find("option[value!='']").clone().appendTo(child);
+            else
+                $(originalClone).find("option[value!=''].show-for-"+this.value).clone().appendTo(child);
             
             // set child to blank option.
             $(child).val("");
@@ -37,8 +42,8 @@ $.fn.showfor = function(parent, hideChild, useDisabled) {
             $(child).trigger("change");
             
             // disable element if parent is blank and using disabled.
-            if(useDisabled && this.value == "") $(child).attr("disabled", true);
+            if(config.disableChild && this.value == "") $(child).attr("disabled", true);
         }
-    })(this, useDisabled, childClone));
+    })(this, config, childClone));
     
 }

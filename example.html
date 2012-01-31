@@ -7,8 +7,8 @@
         <script src="showfor.jquery.js"></script>
         <script type="text/javascript">
             $(function() {
-                $("#b").showfor("#a", true);
-                $("#c").showfor("#b", true);
+                $("#b").showfor("#a", { hideChild: true, disableChild: true});
+                $("#c").showfor("#b", { hideChild: true, disableChild: true});
             });
         </script>
     </head>
