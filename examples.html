@@ -3,25 +3,65 @@
     <head>
         <title>Testbed</title>
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
-        <!--script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.min.js"></script-->
         <script src="showfor.jquery.js"></script>
-        <script type="text/javascript">
-            $(function() {
-                $("#b").showfor("#a", { hideChild: true, disableChild: true});
-                $("#c").showfor("#b", { hideChild: true, disableChild: true});
-            });
-        </script>
     </head>
     <body>
+        <h1>showfor examples</h1>
+        <p>View the source to see how it works.</p>
         <form>
             
+            <h2>Basic example</h2>
+            <p>In this basic example one select simply relies on another. The selects have both numeric and alpha values. No config options are provided. The javascript is added inline after the HTML.<p>
+            <select id="make" name="make">
+                <option value="">--Make--</option>
+                <option value="ford">Ford</option>
+                <option value="bmw">BMW</option>
+                <option value="toyota">Toyota</option>
+            </select>
+            <select id="model" name="model">
+                <option value="">--Model--</option>
+                <option value="1" class="show-for-ford">Focus</option>
+                <option value="2" class="show-for-ford">Escape</option>
+                <option value="3" class="show-for-ford">F-150</option>
+                <option value="4" class="show-for-bmw">3-Series</option>
+                <option value="5" class="show-for-bmw">X-Series</option>
+                <option value="6" class="show-for-bmw">Z4</option>
+                <option value="7" class="show-for-toyota">Camry</option>
+                <option value="8" class="show-for-toyota">Prius</option>
+                <option value="9" class="show-for-toyota">Tacoma</option>
+            </select>
+            <script type="text/javascript">
+                $("#model").showfor("#make");
+            </script>
+            
+            <h2>Options Example</h2>
+            <p>This example shows how to use options. All breeds are available until the parent is chosen. If the parent is reset, all breeds are available again.</p>
+            <select id="animal" name="animal">
+                <option value="">--Animal--</option>
+                <option value="cat">Cat</option>
+                <option value="dog">Dog</option>
+            </select>
+            <select id="breed" name="breed">
+                <option value="">--Breed--</option>
+                <option value="1" class="show-for-cat">Persian</option>
+                <option value="2" class="show-for-cat">American Shorthair</option>
+                <option value="3" class="show-for-cat">Turkish Van</option>
+                <option value="4" class="show-for-dog">Retreiver</option>
+                <option value="5" class="show-for-dog">Lab</option>
+                <option value="6" class="show-for-dog">Beagle</option>
+            </select>
+            <script type="text/javascript">
+                $("#breed").showfor("#animal", { hideChild: false, disableChild: false})
+            </script>
+            
+            <h2>Recursive Example</h2>
+            <p>The plugin will force an automatic change to trigger a DOM Change event for the child select. This allows for recursive showfor instances. No config, inline js.</p>
             <select id="a" name="a">
                 <option value="">--Choose A--</option>
                 <option value="1">A1</option>
                 <option value="2">A2</option>
                 <option value="3">A3</option>
             </select>
-            
             <select id="b" name="b">
                 <option value="">--Choose A First--</option>
                 <option value="1" class="show-for-1">B1</option>
@@ -34,7 +74,6 @@
                 <option value="8" class="show-for-3">B8</option>
                 <option value="9" class="show-for-3">B9</option>
             </select>
-            
             <select id="c" name="c">
                 <option value="">--Choose B First--</option>
                 <option value="1" class="show-for-1">C1</option>
@@ -67,6 +106,11 @@
                 <option value="18" class="show-for-8">C28</option>
                 <option value="19" class="show-for-9">C29</option>
             </select>
+            <script type="text/javascript">
+                $("#b").showfor("#a");
+                $("#c").showfor("#b");
+            </script>
+        
         </form>
     </body>
 </html>
