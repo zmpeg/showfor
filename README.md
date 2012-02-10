@@ -23,8 +23,8 @@ Showfor accepts a few options as a second argument like this:
 
 ### CakePHP Behavior ###
 
-The file showfor.php is a Cakephp behavior for magically building the select options. Rather than using find('list') in the model use showfor('RelatedModel') where RelatedModel is the model the select depends on.
-I know these example are really confusing, email me if you are stuck. zmpeg0@gmail.com
+The file showfor.php is a Cakephp behavior for magically building the select options. Rather than using find('list') in the model use showfor('RelatedModel') where RelatedModel is the model the select depends on. I know these examples are really confusing, email me if you are stuck. zmpeg0@gmail.com
+
 In your Model:
 
 	var $actsAs = array('Showfor');
